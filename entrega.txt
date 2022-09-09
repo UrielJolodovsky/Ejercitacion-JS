@@ -1,0 +1,64 @@
+document.addEventListener('DOMContentLoaded', () => {
+let nombre = "uriel";
+
+// Ejercicio 1
+
+let arrayAlumnos = [{nombre: "juan", apellido:"gomez", dni: 45675907, anio: 5, curso: "A", nota:7},
+ {nombre: "Guido", apellido:"Messi", dni: 47917542, anio: 3, curso: "B", nota:3}, 
+ {nombre: "juan", apellido:"perez", dni: 46976485, anio: 4, curso: "A", nota:9}, 
+ {nombre: "Thiago", apellido:"Barraza", dni: 46578874, anio: 4, curso: "A", nota:2}, 
+ {nombre: "Carlos", apellido:"Tevez", dni: 45999875, anio: 5, curso: "A", nota:8}, 
+ {nombre: "Alexander", apellido:"Pato", dni: 46111234, anio: 4, curso: "B", nota:5}, 
+ {nombre: "Colo", apellido:"Barco", dni: 46909087, anio: 4, curso: "B", nota:6}, 
+ {nombre: "Manuel", apellido:"Belgrano", dni: 47903333, anio: 3, curso: "B", nota:10}];
+
+ // Ejercicio 2
+
+ const capitalizar = (a) => {
+    a = a.charAt(0).toUpperCase() + a.slice(1); 
+     return a;
+ }
+
+ //console.log(capitalizar(nombre));
+
+ // Ejercicio 3
+
+ const mostrarAlumno = (a) => {
+    
+    console.log(a.dni.toString().slice(0,2) + "." + a.dni.toString().slice(2,5) + "." + a.dni.toString().slice(5,8));
+    console.log("Nombre y Apellido: " + a.nombre + " " + a.apellido);
+    console.log("Curso: " + a.anio + "°" + a.curso);
+    console.log("Nota: " + a.nota);
+
+ }
+// console.log(mostrarAlumno(arrayAlumnos[1]));
+
+// Ejercicio 4
+arrayAlumnos.map ((alumno) => {
+   alumno.nombre = capitalizar(alumno.nombre);
+   alumno.apellido = capitalizar(alumno.apellido);
+});
+
+// Ejercicio 5
+
+arrayAlumnos.map ((alumno) => {
+   mostrarAlumno(alumno);
+});
+
+// Ejercicio 6
+
+const AlumnosAprobados = arrayAlumnos.filter((alumno) => alumno.nota >= 6)
+AlumnosAprobados.map((alumno) => {
+   mostrarAlumno(alumno);
+});
+
+// Ejercicio 7
+
+const Alumnos4to = arrayAlumnos.filter((alumno) => alumno.anio === 4);
+Alumnos4to.map((alumno) => mostrarAlumno(alumno));
+
+// Ejercicio 8
+
+const AlumnosB = arrayAlumnos.filter((alumno) => alumno.curso === "B");
+AlumnosB.map((alumno) => mostrarAlumno(alumno));
+});
